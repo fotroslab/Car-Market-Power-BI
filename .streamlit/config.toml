@@ -1,10 +1,3 @@
-[server]
-headless = true
-address = "0.0.0.0"
-port = 8503
-enableCORS = false
-enableXsrfProtection = false
-
 [browser]
 gatherUsageStats = false
 
@@ -12,5 +5,5 @@ gatherUsageStats = false
 primaryColor = "#123a5f"
 backgroundColor = "#f5f7fa"
 secondaryBackgroundColor = "#ffffff"
-textColor = "#0f172a"
+textColor = "#102033"
 font = "sans serif"
