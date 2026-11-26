@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 660" width="1120" height="660" role="img" aria-label="مدل ستاره‌ای پروژه بازار خودروی ایران">
+  <defs>
+    <style>
+      .bg { fill: #f5f7fa; }
+      .title { font-family: 'Vazirmatn FD', 'Vazirmatn', Tahoma, sans-serif; font-size: 22px; font-weight: 700; fill: #123a5f; }
+      .subtitle { font-family: 'Vazirmatn FD', 'Vazirmatn', Tahoma, sans-serif; font-size: 13px; fill: #475569; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; rx: 10; ry: 10; }
+      .fact-card { fill: #ffffff; stroke: #123a5f; stroke-width: 2.2; rx: 10; ry: 10; }
+      .header-fact { fill: #123a5f; }
+      .header-dim { fill: #245580; }
+      .header-text { font-family: 'Vazirmatn FD', 'Vazirmatn', Tahoma, sans-serif; font-size: 15px; font-weight: 700; fill: #ffffff; }
+      .sub-header { font-family: 'Vazirmatn FD', 'Vazirmatn', Tahoma, sans-serif; font-size: 11px; fill: #f2a900; font-weight: 600; }
+      .col-pk { font-family: 'Consolas', 'Courier New', monospace; font-size: 12px; font-weight: 700; fill: #123a5f; }
+      .col-fk { font-family: 'Consolas', 'Courier New', monospace; font-size: 12px; font-weight: 700; fill: #b45309; }
+      .col-name { font-family: 'Consolas', 'Courier New', monospace; font-size: 12px; fill: #1e293b; }
+      .col-type { font-family: 'Consolas', 'Courier New', monospace; font-size: 11px; fill: #64748b; }
+      .rel-line { stroke: #123a5f; stroke-width: 2; fill: none; }
+      .rel-badge { fill: #f2a900; stroke: #123a5f; stroke-width: 1.2; }
+      .rel-text { font-family: 'Consolas', monospace; font-size: 11px; font-weight: 700; fill: #123a5f; }
+      .note-box { fill: #fffbeb; stroke: #f2a900; stroke-width: 1.2; rx: 8; ry: 8; }
+      .note-text { font-family: 'Vazirmatn FD', 'Vazirmatn', Tahoma, sans-serif; font-size: 12px; fill: #334155; }
+    </style>
+    <marker id="arrow-many" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 6 L 0 11 z" fill="#123a5f" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1120" height="660" />
+
+  <!-- Title -->
+  <text class="title" x="1085" y="42" text-anchor="end">مدل دادهٔ ستاره‌ای — بازار خودروی ایران (آگهی‌های دیوار)</text>
+  <text class="subtitle" x="1085" y="66" text-anchor="end">یک جدول واقعیت مرکزی (۳۸۳٬۴۵۴ آگهی تمیز) متصل به سه بُعد تاریخ شمسی، برند و شهر با روابط یک‌به‌چند (1:*)</text>
+
+  <!-- Relationship Lines -->
+  <!-- dim_date -> fact_listing -->
+  <path class="rel-line" d="M 305 180 L 385 180 L 385 215 L 415 215" marker-end="url(#arrow-many)" />
+  <rect class="rel-badge" x="322" y="164" width="38" height="22" rx="5" />
+  <text class="rel-text" x="341" y="179" text-anchor="middle">1 : *</text>
+
+  <!-- dim_brand -> fact_listing -->
+  <path class="rel-line" d="M 305 465 L 385 465 L 385 255 L 415 255" marker-end="url(#arrow-many)" />
+  <rect class="rel-badge" x="322" y="449" width="38" height="22" rx="5" />
+  <text class="rel-text" x="341" y="464" text-anchor="middle">1 : *</text>
+
+  <!-- dim_city -> fact_listing -->
+  <path class="rel-line" d="M 815 280 L 735 280 L 735 275 L 705 275" marker-end="url(#arrow-many)" />
+  <rect class="rel-badge" x="752" y="264" width="38" height="22" rx="5" />
+  <text class="rel-text" x="771" y="279" text-anchor="middle">1 : *</text>
+
+  <!-- dim_date Card (Top Left) -->
+  <rect class="card" x="35" y="95" width="270" height="260" />
+  <path class="header-dim" d="M 45 95 H 295 Q 305 95 305 105 V 142 H 35 V 105 Q 35 95 45 95 Z" />
+  <text class="header-text" x="50" y="118">dim_date</text>
+  <text class="sub-header" x="50" y="135">1,004 rows (1400/07/03 - 1403/04/04)</text>
+  <text class="col-pk" x="50" y="165">PK  date_key</text><text class="col-type" x="290" y="165" text-anchor="end">INT</text>
+  <text class="col-name" x="50" y="187">    date_iso</text><text class="col-type" x="290" y="187" text-anchor="end">DATE</text>
+  <text class="col-name" x="50" y="209">    jalali_date</text><text class="col-type" x="290" y="209" text-anchor="end">TEXT</text>
+  <text class="col-name" x="50" y="231">    jalali_year / month</text><text class="col-type" x="290" y="231" text-anchor="end">INT</text>
+  <text class="col-name" x="50" y="253">    jalali_month_name</text><text class="col-type" x="290" y="253" text-anchor="end">TEXT</text>
+  <text class="col-name" x="50" y="275">    jalali_quarter</text><text class="col-type" x="290" y="275" text-anchor="end">TEXT</text>
+  <text class="col-name" x="50" y="297">    jalali_year_month</text><text class="col-type" x="290" y="297" text-anchor="end">TEXT</text>
+  <text class="col-name" x="50" y="319">    scrape_wave_code</text><text class="col-type" x="290" y="319" text-anchor="end">INT (1|2)</text>
+  <text class="col-name" x="50" y="341">    scrape_wave</text><text class="col-type" x="290" y="341" text-anchor="end">TEXT</text>
+
+  <!-- dim_brand Card (Bottom Left) -->
+  <rect class="card" x="35" y="385" width="270" height="185" />
+  <path class="header-dim" d="M 45 385 H 295 Q 305 385 305 395 V 432 H 35 V 395 Q 35 385 45 385 Z" />
+  <text class="header-text" x="50" y="408">dim_brand</text>
+  <text class="sub-header" x="50" y="425">41 rows (55 rules + سایر)</text>
+  <text class="col-pk" x="50" y="455">PK  brand_key</text><text class="col-type" x="290" y="455" text-anchor="end">INT</text>
+  <text class="col-name" x="50" y="479">    brand_name_fa</text><text class="col-type" x="290" y="479" text-anchor="end">TEXT</text>
+  <text class="col-name" x="50" y="503">    brand_name_en</text><text class="col-type" x="290" y="503" text-anchor="end">TEXT</text>
+  <text class="col-name" x="50" y="527">    origin_type</text><text class="col-type" x="290" y="527" text-anchor="end">داخلی|خارجی</text>
+  <text class="col-name" x="50" y="551">    manufacturer_group</text><text class="col-type" x="290" y="551" text-anchor="end">TEXT</text>
+
+  <!-- fact_listing Card (Center) -->
+  <rect class="fact-card" x="415" y="110" width="290" height="440" />
+  <path class="header-fact" d="M 425 110 H 695 Q 705 110 705 120 V 158 H 415 V 120 Q 415 110 425 110 Z" />
+  <text class="header-text" x="432" y="134">fact_listing</text>
+  <text class="sub-header" x="432" y="151">383,454 clean listings (1 row = 1 listing)</text>
+  <text class="col-pk" x="432" y="185">PK  listing_id</text><text class="col-type" x="690" y="185" text-anchor="end">BIGINT</text>
+  <text class="col-fk" x="432" y="210">FK  date_key</text><text class="col-type" x="690" y="210" text-anchor="end">INT</text>
+  <text class="col-fk" x="432" y="235">FK  brand_key</text><text class="col-type" x="690" y="235" text-anchor="end">INT</text>
+  <text class="col-fk" x="432" y="260">FK  city_key</text><text class="col-type" x="690" y="260" text-anchor="end">INT</text>
+  <line x1="430" y1="274" x2="690" y2="274" stroke="#e2e8f0" stroke-width="1" />
+  <text class="col-name" x="432" y="296">    price_irr (Toman x10)</text><text class="col-type" x="690" y="296" text-anchor="end">BIGINT</text>
+  <text class="col-name" x="432" y="320">    model_year_jalali</text><text class="col-type" x="690" y="320" text-anchor="end">INT?</text>
+  <text class="col-name" x="432" y="344">    car_age</text><text class="col-type" x="690" y="344" text-anchor="end">INT?</text>
+  <text class="col-name" x="432" y="368">    mileage_km</text><text class="col-type" x="690" y="368" text-anchor="end">INT?</text>
+  <text class="col-name" x="432" y="392">    gearbox</text><text class="col-type" x="690" y="392" text-anchor="end">TEXT</text>
+  <text class="col-name" x="432" y="416">    fuel_type (41% null)</text><text class="col-type" x="690" y="416" text-anchor="end">TEXT?</text>
+  <text class="col-name" x="432" y="440">    selling_method (89% other)</text><text class="col-type" x="690" y="440" text-anchor="end">TEXT</text>
+  <text class="col-name" x="432" y="464">    body_condition</text><text class="col-type" x="690" y="464" text-anchor="end">TEXT</text>
+  <text class="col-name" x="432" y="488">    engine_condition</text><text class="col-type" x="690" y="488" text-anchor="end">TEXT</text>
+  <text class="col-name" x="432" y="512">    chassis_condition</text><text class="col-type" x="690" y="512" text-anchor="end">TEXT</text>
+  <text class="col-name" x="432" y="536">    color</text><text class="col-type" x="690" y="536" text-anchor="end">TEXT</text>
+
+  <!-- dim_city Card (Right) -->
+  <rect class="card" x="815" y="175" width="270" height="215" />
+  <path class="header-dim" d="M 825 175 H 1075 Q 1085 175 1085 185 V 222 H 815 V 185 Q 815 175 825 175 Z" />
+  <text class="header-text" x="830" y="198">dim_city</text>
+  <text class="sub-header" x="830" y="215">334 rows (90 FA mapped = 91.7%)</text>
+  <text class="col-pk" x="830" y="248">PK  city_key</text><text class="col-type" x="1070" y="248" text-anchor="end">INT</text>
+  <text class="col-name" x="830" y="272">    city_slug</text><text class="col-type" x="1070" y="272" text-anchor="end">TEXT</text>
+  <text class="col-name" x="830" y="296">    city_name_fa</text><text class="col-type" x="1070" y="296" text-anchor="end">TEXT</text>
+  <text class="col-name" x="830" y="320">    is_persian_mapped</text><text class="col-type" x="1070" y="320" text-anchor="end">BOOL</text>
+  <text class="col-name" x="830" y="344">    is_tehran</text><text class="col-type" x="1070" y="344" text-anchor="end">BOOL</text>
+  <text class="col-name" x="830" y="368">    city_tier</text><text class="col-type" x="1070" y="368" text-anchor="end">TEXT</text>
+
+  <!-- Honesty Footer Note -->
+  <rect class="note-box" x="35" y="588" width="1050" height="52" />
+  <text class="note-text" x="1070" y="610" text-anchor="end">نکتهٔ کلیدی مدل‌سازی: جهت فیلترها در تمام روابط یک‌طرفه (Dimension → Fact) است. ستون‌های هویتی (id / title / Location) حذف شده‌اند.</text>
+  <text class="note-text" x="1070" y="630" text-anchor="end">داده حاصل دو موج اسکرپ (پیش از ۱۴۰۲ و ۱۴۰۲ به بعد) است نه سری زمانی پیوسته؛ قیمت‌ها «ریال آگهی» هستند نه قیمت قطعی معامله.</text>
+</svg>
