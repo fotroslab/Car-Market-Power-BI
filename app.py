@@ -931,8 +931,16 @@ def make_rtl_hbar(
 # ---------------------------------------------------------------------------
 @st.cache_data(show_spinner=False)
 def load_star_schema() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, Dict]:
+    fact_csv = PROCESSED_DIR / "fact_listing.csv"
+    fact_gz = PROCESSED_DIR / "fact_listing.csv.gz"
+    fact_path = fact_csv if fact_csv.exists() else fact_gz
+    if not fact_path.exists():
+        raise FileNotFoundError(
+            f"فایل داده یافت نشد ({fact_csv.name} یا {fact_gz.name} در مسیر data/processed/)."
+        )
+
     fact = pd.read_csv(
-        PROCESSED_DIR / "fact_listing.csv",
+        fact_path,
         dtype={
             "listing_id": "int32",
             "date_key": "int32",
