@@ -1,0 +1,185 @@
+// ============================================================================
+// Project 02: Iran Car Market (Divar Listings) — Standard DAX Measures
+// Model: Star Schema (fact_listing -> dim_date, dim_brand, dim_city)
+// Notes:
+//   - All prices are advertised prices in Iranian Rial (IRR = Toman * 10),
+//     NOT actual settled transaction prices.
+//   - Dataset contains two distinct scrape waves (pre-1402 vs 1402+), NOT a
+//     continuous time series. Do NOT build time-intelligence price trend lines.
+//   - Tested syntactically; NOT yet executed inside Power BI VertiPaq engine.
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// 1. Core Volume & Market Share Measures
+// ----------------------------------------------------------------------------
+
+تعداد آگهی =
+COUNTROWS ( fact_listing )
+
+سهم از کل آگهی‌ها =
+DIVIDE (
+    [تعداد آگهی],
+    CALCULATE ( [تعداد آگهی], ALLSELECTED ( fact_listing ) ),
+    0
+)
+
+سهم از کل بازار =
+DIVIDE (
+    [تعداد آگهی],
+    CALCULATE ( [تعداد آگهی], ALL ( fact_listing ) ),
+    0
+)
+
+تعداد آگهی تهران =
+CALCULATE (
+    [تعداد آگهی],
+    dim_city[is_tehran] = TRUE ()
+)
+
+سهم تهران =
+DIVIDE ( [تعداد آگهی تهران], [تعداد آگهی], 0 )
+
+تعداد برند فعال =
+DISTINCTCOUNT ( fact_listing[brand_key] )
+
+تعداد شهر فعال =
+DISTINCTCOUNT ( fact_listing[city_key] )
+
+// ----------------------------------------------------------------------------
+// 2. Price Measures (Advertised Price in IRR — NOT Transaction Price)
+// ----------------------------------------------------------------------------
+
+میانه قیمت آگهی (ریال) =
+MEDIAN ( fact_listing[price_irr] )
+
+میانه قیمت آگهی (میلیارد ریال) =
+DIVIDE ( [میانه قیمت آگهی (ریال)], 1000000000 )
+
+میانگین قیمت آگهی (ریال) =
+AVERAGE ( fact_listing[price_irr] )
+
+میانگین قیمت آگهی (میلیارد ریال) =
+DIVIDE ( [میانگین قیمت آگهی (ریال)], 1000000000 )
+
+چارک اول قیمت (ریال) =
+PERCENTILE.INC ( fact_listing[price_irr], 0.25 )
+
+چارک سوم قیمت (ریال) =
+PERCENTILE.INC ( fact_listing[price_irr], 0.75 )
+
+دامنه بین‌چارکی قیمت (ریال) =
+[چارک سوم قیمت (ریال)] - [چارک اول قیمت (ریال)]
+
+نسبت میانگین به میانه قیمت =
+DIVIDE ( [میانگین قیمت آگهی (ریال)], [میانه قیمت آگهی (ریال)], BLANK () )
+
+// ----------------------------------------------------------------------------
+// 3. Mileage, Age & Technical Mix Measures
+// ----------------------------------------------------------------------------
+
+میانه کارکرد (کیلومتر) =
+MEDIAN ( fact_listing[mileage_km] )
+
+میانگین کارکرد (کیلومتر) =
+AVERAGE ( fact_listing[mileage_km] )
+
+میانه سن خودرو (سال) =
+MEDIAN ( fact_listing[car_age] )
+
+میانگین سن خودرو (سال) =
+AVERAGE ( fact_listing[car_age] )
+
+تعداد دنده‌ای =
+CALCULATE (
+    [تعداد آگهی],
+    fact_listing[gearbox] = "دنده‌ای"
+)
+
+سهم گیربکس دنده‌ای =
+DIVIDE ( [تعداد دنده‌ای], [تعداد آگهی], 0 )
+
+تعداد اتوماتیک =
+CALCULATE (
+    [تعداد آگهی],
+    fact_listing[gearbox] = "اتوماتیک"
+)
+
+سهم گیربکس اتوماتیک =
+DIVIDE ( [تعداد اتوماتیک], [تعداد آگهی], 0 )
+
+سهم برند داخلی =
+DIVIDE (
+    CALCULATE ( [تعداد آگهی], dim_brand[origin_type] = "داخلی" ),
+    [تعداد آگهی],
+    0
+)
+
+سهم برند خارجی =
+DIVIDE (
+    CALCULATE ( [تعداد آگهی], dim_brand[origin_type] = "خارجی" ),
+    [تعداد آگهی],
+    0
+)
+
+// ----------------------------------------------------------------------------
+// 4. Descriptive Wave Comparison Measures (Unadjusted for Mix — NOT a Trend)
+// ----------------------------------------------------------------------------
+
+تعداد آگهی موج اول =
+CALCULATE (
+    [تعداد آگهی],
+    dim_date[scrape_wave_code] = 1
+)
+
+تعداد آگهی موج دوم =
+CALCULATE (
+    [تعداد آگهی],
+    dim_date[scrape_wave_code] = 2
+)
+
+میانه قیمت موج اول (ریال) =
+CALCULATE (
+    [میانه قیمت آگهی (ریال)],
+    dim_date[scrape_wave_code] = 1
+)
+
+میانه قیمت موج دوم (ریال) =
+CALCULATE (
+    [میانه قیمت آگهی (ریال)],
+    dim_date[scrape_wave_code] = 2
+)
+
+تفاوت توصیفی میانه دو موج (بدون تعدیل ترکیب) =
+VAR W1 = [میانه قیمت موج اول (ریال)]
+VAR W2 = [میانه قیمت موج دوم (ریال)]
+RETURN
+    IF (
+        NOT ISBLANK ( W1 ) && NOT ISBLANK ( W2 ),
+        DIVIDE ( W2 - W1, W1 ),
+        BLANK ()
+    )
+
+// ----------------------------------------------------------------------------
+// 5. Data Quality & Coverage Diagnostics
+// ----------------------------------------------------------------------------
+
+درصد نبود نوع سوخت =
+DIVIDE (
+    CALCULATE ( [تعداد آگهی], ISBLANK ( fact_listing[fuel_type] ) ),
+    [تعداد آگهی],
+    0
+)
+
+درصد نامشخص روش فروش =
+DIVIDE (
+    CALCULATE ( [تعداد آگهی], fact_listing[selling_method] = "سایر/نامشخص" ),
+    [تعداد آگهی],
+    0
+)
+
+درصد پوشش نگاشت فارسی شهر =
+DIVIDE (
+    CALCULATE ( [تعداد آگهی], dim_city[is_persian_mapped] = TRUE () ),
+    [تعداد آگهی],
+    0
+)

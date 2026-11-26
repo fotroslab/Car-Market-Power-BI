@@ -1,0 +1,165 @@
+{
+  "name": "Iran Car Market Fa",
+  "dataColors": [
+    "#123a5f",
+    "#f2a900",
+    "#2e6b9e",
+    "#0f766e",
+    "#d97706",
+    "#64748b",
+    "#1e40af",
+    "#b45309"
+  ],
+  "background": "#f5f7fa",
+  "foreground": "#0f172a",
+  "tableAccent": "#123a5f",
+  "good": "#0f766e",
+  "neutral": "#f2a900",
+  "bad": "#b91c1c",
+  "maximum": "#123a5f",
+  "center": "#f2a900",
+  "minimum": "#cbd5e1",
+  "null": "#94a3b8",
+  "textClasses": {
+    "callout": {
+      "fontSize": 26,
+      "fontFace": "Vazirmatn FD",
+      "color": "#123a5f"
+    },
+    "title": {
+      "fontSize": 14,
+      "fontFace": "Vazirmatn FD",
+      "color": "#123a5f"
+    },
+    "header": {
+      "fontSize": 12,
+      "fontFace": "Vazirmatn FD",
+      "color": "#1e293b"
+    },
+    "label": {
+      "fontSize": 10,
+      "fontFace": "Vazirmatn FD",
+      "color": "#475569"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#ffffff"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#e2e8f0"
+              }
+            },
+            "radius": 10
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": false
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontFamily": "Vazirmatn FD",
+            "fontSize": 13,
+            "fontColor": {
+              "solid": {
+                "color": "#123a5f"
+              }
+            },
+            "alignment": "right"
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#f5f7fa"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": {
+              "solid": {
+                "color": "#e8eef5"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "fontFamily": "Vazirmatn FD",
+            "fontSize": 26,
+            "color": {
+              "solid": {
+                "color": "#123a5f"
+              }
+            }
+          }
+        ],
+        "categoryLabels": [
+          {
+            "fontFamily": "Vazirmatn FD",
+            "fontSize": 11,
+            "color": {
+              "solid": {
+                "color": "#475569"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "header": [
+          {
+            "fontFamily": "Vazirmatn FD",
+            "fontSize": 11,
+            "fontColor": {
+              "solid": {
+                "color": "#123a5f"
+              }
+            }
+          }
+        ],
+        "items": [
+          {
+            "fontFamily": "Vazirmatn FD",
+            "fontSize": 10,
+            "fontColor": {
+              "solid": {
+                "color": "#1e293b"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
