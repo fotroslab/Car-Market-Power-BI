@@ -1,0 +1,253 @@
+{
+  "project": "بازار خودروی ایران — تحلیل آگهی‌های دیوار",
+  "source_dataset": "arianghasemi/divar-cars (v5, final2024.csv)",
+  "source_url": "https://www.kaggle.com/datasets/arianghasemi/divar-cars",
+  "snapshot_iso": "2024-06-24",
+  "snapshot_jalali": "1403/04/04",
+  "date_min_iso": "2021-09-25",
+  "date_max_iso": "2024-06-24",
+  "date_min_jalali": "1400/07/03",
+  "date_max_jalali": "1403/04/04",
+  "dim_date_days": 1004,
+  "raw_rows": 406923,
+  "raw_columns": 19,
+  "dropped_rows_price_filter": 23469,
+  "dropped_pct": 5.77,
+  "price_drop_breakdown": {
+    "null_price": 13096,
+    "zero_or_negative": 8658,
+    "below_10m_toman": 1715,
+    "above_100b_toman": 0
+  },
+  "clean_rows": 383454,
+  "brands_count": 41,
+  "brand_rules_count": 55,
+  "cities_count": 334,
+  "cities_persian_mapped": 90,
+  "cities_latin_preserved": 244,
+  "cities_persian_coverage_pct": 91.71,
+  "price_irr": {
+    "median": 3300000000,
+    "mean": 5982613672.16,
+    "p25": 1750000000,
+    "p75": 6000000000,
+    "p90": 11111111110,
+    "min": 100000000,
+    "max": 500000000000
+  },
+  "mileage_km": {
+    "median": 110000,
+    "mean": 138603.08,
+    "null_count": 1104,
+    "null_pct": 0.29
+  },
+  "model_year_jalali": {
+    "min": 1366,
+    "max": 1403,
+    "median": 1395,
+    "null_count": 5291,
+    "null_pct": 1.38
+  },
+  "car_age": {
+    "min": 0,
+    "max": 37,
+    "median": 8,
+    "mean": 9.19
+  },
+  "tehran_listings": 104979,
+  "tehran_share_pct": 27.38,
+  "gearbox_counts": {
+    "دنده‌ای": 269266,
+    "نامشخص": 61302,
+    "اتوماتیک": 52886
+  },
+  "gearbox_manual_share_pct": 70.22,
+  "gearbox_auto_share_pct": 13.79,
+  "gearbox_unknown_share_pct": 15.99,
+  "selling_method_counts": {
+    "سایر/نامشخص": 342587,
+    "نقدی": 39745,
+    "نقدی و قسطی": 1082,
+    "قسطی": 40
+  },
+  "selling_method_other_share_pct": 89.34,
+  "fuel_type_missing_count": 157607,
+  "fuel_type_missing_pct": 41.1,
+  "origin_counts": {
+    "داخلی": 281299,
+    "خارجی": 73512,
+    "نامشخص": 28643
+  },
+  "waves": {
+    "wave_1_before_1402": {
+      "label": "موج اول (پیش از ۱۴۰۲)",
+      "listings": 43330,
+      "share_pct": 11.3,
+      "median_price_irr": 1910000000,
+      "mean_price_irr": 2982624075.53,
+      "median_mileage_km": 93000
+    },
+    "wave_2_1402_onwards": {
+      "label": "موج دوم (۱۴۰۲ به بعد)",
+      "listings": 340124,
+      "share_pct": 88.7,
+      "median_price_irr": 3540000000,
+      "mean_price_irr": 6364796491.43,
+      "median_mileage_km": 111111
+    }
+  },
+  "top_brands": [
+    {
+      "brand_key": 1,
+      "brand_name_fa": "پژو",
+      "origin_type": "داخلی",
+      "listings": 107753,
+      "share_pct": 28.1,
+      "median_price_irr": 3400000000
+    },
+    {
+      "brand_key": 2,
+      "brand_name_fa": "پراید",
+      "origin_type": "داخلی",
+      "listings": 69485,
+      "share_pct": 18.12,
+      "median_price_irr": 1600000000
+    },
+    {
+      "brand_key": 41,
+      "brand_name_fa": "سایر",
+      "origin_type": "نامشخص",
+      "listings": 28643,
+      "share_pct": 7.47,
+      "median_price_irr": 9000000000
+    },
+    {
+      "brand_key": 3,
+      "brand_name_fa": "سمند",
+      "origin_type": "داخلی",
+      "listings": 21723,
+      "share_pct": 5.67,
+      "median_price_irr": 3100000000
+    },
+    {
+      "brand_key": 4,
+      "brand_name_fa": "کوییک",
+      "origin_type": "داخلی",
+      "listings": 15853,
+      "share_pct": 4.13,
+      "median_price_irr": 3900000000
+    },
+    {
+      "brand_key": 5,
+      "brand_name_fa": "پیکان",
+      "origin_type": "داخلی",
+      "listings": 15480,
+      "share_pct": 4.04,
+      "median_price_irr": 1350000000
+    },
+    {
+      "brand_key": 6,
+      "brand_name_fa": "تیبا",
+      "origin_type": "داخلی",
+      "listings": 11490,
+      "share_pct": 3.0,
+      "median_price_irr": 3140000000
+    },
+    {
+      "brand_key": 7,
+      "brand_name_fa": "ساینا",
+      "origin_type": "داخلی",
+      "listings": 9301,
+      "share_pct": 2.43,
+      "median_price_irr": 3890000000
+    },
+    {
+      "brand_key": 8,
+      "brand_name_fa": "ام‌وی‌ام",
+      "origin_type": "خارجی",
+      "listings": 9193,
+      "share_pct": 2.4,
+      "median_price_irr": 4650000000
+    },
+    {
+      "brand_key": 9,
+      "brand_name_fa": "رنو",
+      "origin_type": "خارجی",
+      "listings": 9105,
+      "share_pct": 2.37,
+      "median_price_irr": 4450000000
+    }
+  ],
+  "top_cities": [
+    {
+      "city_key": 1,
+      "city_name_fa": "تهران",
+      "listings": 104979,
+      "share_pct": 27.38,
+      "median_price_irr": 4070000000
+    },
+    {
+      "city_key": 2,
+      "city_name_fa": "مشهد",
+      "listings": 34619,
+      "share_pct": 9.03,
+      "median_price_irr": 2650000000
+    },
+    {
+      "city_key": 3,
+      "city_name_fa": "اصفهان",
+      "listings": 26508,
+      "share_pct": 6.91,
+      "median_price_irr": 2950000000
+    },
+    {
+      "city_key": 4,
+      "city_name_fa": "شیراز",
+      "listings": 19888,
+      "share_pct": 5.19,
+      "median_price_irr": 3100000000
+    },
+    {
+      "city_key": 5,
+      "city_name_fa": "کرج",
+      "listings": 16207,
+      "share_pct": 4.23,
+      "median_price_irr": 3370000000
+    },
+    {
+      "city_key": 6,
+      "city_name_fa": "تبریز",
+      "listings": 11820,
+      "share_pct": 3.08,
+      "median_price_irr": 3380000000
+    },
+    {
+      "city_key": 7,
+      "city_name_fa": "اهواز",
+      "listings": 9971,
+      "share_pct": 2.6,
+      "median_price_irr": 3950000000
+    },
+    {
+      "city_key": 8,
+      "city_name_fa": "کرمانشاه",
+      "listings": 8393,
+      "share_pct": 2.19,
+      "median_price_irr": 3500000000
+    },
+    {
+      "city_key": 9,
+      "city_name_fa": "کرمان",
+      "listings": 7620,
+      "share_pct": 1.99,
+      "median_price_irr": 3450000000
+    },
+    {
+      "city_key": 10,
+      "city_name_fa": "قم",
+      "listings": 5748,
+      "share_pct": 1.5,
+      "median_price_irr": 3250000000
+    }
+  ]
+}
